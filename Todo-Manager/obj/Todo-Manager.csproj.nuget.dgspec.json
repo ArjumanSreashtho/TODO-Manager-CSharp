@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\Todo-Manager.csproj": {}
+    "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\Todo-Manager.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\Todo-Manager.csproj": {
+    "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\Todo-Manager.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\Todo-Manager.csproj",
+        "projectUniqueName": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\Todo-Manager.csproj",
         "projectName": "Todo-Manager",
-        "projectPath": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\Todo-Manager.csproj",
-        "packagesPath": "C:\\Users\\Arjuman Sreashtho\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\obj\\",
+        "projectPath": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\Todo-Manager.csproj",
+        "packagesPath": "C:\\Users\\Newcomer\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Arjuman Sreashtho\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Newcomer\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -84,7 +84,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

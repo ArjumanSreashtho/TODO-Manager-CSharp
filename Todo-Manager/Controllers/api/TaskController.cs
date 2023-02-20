@@ -32,9 +32,18 @@ namespace Todo_Manager.Controllers.api
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetTasks()
+        public async Task<IActionResult> GetTasks([FromQuery] bool? type = null, string search = "", int page = 1, int total = 10)
         {
-            return Ok(await _appDbContext.Tasks.ToListAsync());
+            var totalTasks = await _appDbContext.Tasks.Where(task => task.Title.Contains(search) &&
+                                                                     (type == null ? true : type == task.Completed)).CountAsync();
+            var taskList = await _appDbContext.Tasks.Where(task => task.Title.Contains(search) &&
+                    (type == null ? true : task.Completed == type))
+                .OrderByDescending(task => task.UpdatedAt).Skip((page - 1) * total).Take(total).ToListAsync();
+            return Ok(new
+            {
+                total = totalTasks,
+                taskList
+            });
         }
 
         [HttpGet]
