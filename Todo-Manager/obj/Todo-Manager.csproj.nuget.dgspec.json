@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\Todo-Manager.csproj": {}
+    "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\Todo-Manager.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\Todo-Manager.csproj": {
+    "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\Todo-Manager.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\Todo-Manager.csproj",
+        "projectUniqueName": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\Todo-Manager.csproj",
         "projectName": "Todo-Manager",
-        "projectPath": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\Todo-Manager.csproj",
-        "packagesPath": "C:\\Users\\Newcomer\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\obj\\",
+        "projectPath": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\Todo-Manager.csproj",
+        "packagesPath": "C:\\Users\\Arjuman Sreashtho\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Newcomer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Arjuman Sreashtho\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -44,6 +44,10 @@
               "target": "Package",
               "version": "[5.2.9, )"
             },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[7.0.3, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[7.0.3, )"
@@ -60,9 +64,17 @@
               "target": "Package",
               "version": "[7.0.3, )"
             },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[6.27.0, )"
+            },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[7.0.3, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.27.0, )"
             }
           },
           "imports": [
@@ -84,7 +96,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     }

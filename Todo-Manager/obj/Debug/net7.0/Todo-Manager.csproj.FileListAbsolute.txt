@@ -92,3 +92,11 @@ C:\Users\Newcomer\WellDev\Projects\TODO-Manager-CSharp\Todo-Manager\obj\Debug\ne
 C:\Users\Newcomer\WellDev\Projects\TODO-Manager-CSharp\Todo-Manager\obj\Debug\net7.0\Todo-Manager.pdb
 C:\Users\Newcomer\WellDev\Projects\TODO-Manager-CSharp\Todo-Manager\obj\Debug\net7.0\Todo-Manager.genruntimeconfig.cache
 C:\Users\Newcomer\WellDev\Projects\TODO-Manager-CSharp\Todo-Manager\obj\Debug\net7.0\ref\Todo-Manager.dll
+C:\Users\Arjuman Sreashtho\RiderProjects\Todo-Manager\Todo-Manager\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Arjuman Sreashtho\RiderProjects\Todo-Manager\Todo-Manager\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\Arjuman Sreashtho\RiderProjects\Todo-Manager\Todo-Manager\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Arjuman Sreashtho\RiderProjects\Todo-Manager\Todo-Manager\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Arjuman Sreashtho\RiderProjects\Todo-Manager\Todo-Manager\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Arjuman Sreashtho\RiderProjects\Todo-Manager\Todo-Manager\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Arjuman Sreashtho\RiderProjects\Todo-Manager\Todo-Manager\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Arjuman Sreashtho\RiderProjects\Todo-Manager\Todo-Manager\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
