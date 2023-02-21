@@ -31,11 +31,16 @@ public class AuthController : ControllerBase
         var user = await AuthenticateUser(loginDTO);
         
         if (user == null)
-            return NotFound("User not found");
+            return NotFound(new
+            {
+                success = false,
+                message = "Invalid username or password"
+            });
         var token = GenerateToken(user);
 
         return Ok(new
         {
+            success = true,
             token
         });
     }
@@ -53,8 +58,8 @@ public class AuthController : ControllerBase
         var credentials = new SigningCredentials(secrectKey, SecurityAlgorithms.HmacSha256);
         var claims = new[]
         {
-            new Claim(ClaimTypes.NameIdentifier, user.Username),
-            new Claim(ClaimTypes.Role, user.Role.ToString())
+            new Claim(ClaimTypes.Name, user.Role),
+            new Claim(ClaimTypes.Role, user.Role)
         };
         var accessToken = new JwtSecurityToken(claims: claims, expires: DateTime.Now.AddMinutes(15), signingCredentials: credentials);
         //var refreshToken = new JwtSecurityToken(claims: claims, expires: DateTime.Now.AddHours(24), signingCredentials: credentials);

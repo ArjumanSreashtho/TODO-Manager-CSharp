@@ -9,7 +9,7 @@ public class AppDbContext : DbContext
     
     public virtual DbSet<TaskModel> Tasks { get; set; }
     public virtual DbSet<UserModel> Users { get; set; }
-
+    
     public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
     {
         var insertedEntries = this.ChangeTracker.Entries()

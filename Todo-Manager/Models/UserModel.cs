@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using Todo_Manager.Enums;
 
 namespace Todo_Manager.Models;
 
@@ -15,5 +14,5 @@ public class UserModel : BaseModel
     public string Password { get; set; }
     
     [Required]
-    public UserRole Role { get; set; }
+    public string Role { get; set; }
 }

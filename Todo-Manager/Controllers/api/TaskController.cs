@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Todo_Manager.Data;
@@ -9,6 +9,7 @@ namespace Todo_Manager.Controllers.api
 {
     [Route("api/tasks")]
     [ApiController]
+    [Authorize(Roles = "ADMIN,USER")]
     public class TaskController : ControllerBase
     {
         private readonly AppDbContext _appDbContext;
@@ -34,15 +35,15 @@ namespace Todo_Manager.Controllers.api
         [HttpGet]
         public async Task<IActionResult> GetTasks([FromQuery] bool? type = null, string search = "", int page = 1, int total = 10)
         {
-            var totalTasks = await _appDbContext.Tasks.Where(task => task.Title.Contains(search) &&
+            var totalData = await _appDbContext.Tasks.Where(task => task.Title.Contains(search) &&
                                                                      (type == null ? true : type == task.Completed)).CountAsync();
-            var taskList = await _appDbContext.Tasks.Where(task => task.Title.Contains(search) &&
-                    (type == null ? true : task.Completed == type))
+            var dataList = await _appDbContext.Tasks.Where(task => task.Title.Contains(search) &&
+                                                                   (type == null ? true : task.Completed == type))
                 .OrderByDescending(task => task.UpdatedAt).Skip((page - 1) * total).Take(total).ToListAsync();
             return Ok(new
             {
-                total = totalTasks,
-                taskList
+                totalData,
+                dataList
             });
         }
 

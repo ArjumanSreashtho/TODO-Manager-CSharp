@@ -12,8 +12,8 @@ using Todo_Manager.Data;
 namespace Todo_Manager.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230218202051_AddTasksToDatabase")]
-    partial class AddTasksToDatabase
+    [Migration("20230221044253_test")]
+    partial class test
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,8 +25,12 @@ namespace Todo_Manager.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("Todo_Manager.Models.Task", b =>
+            modelBuilder.Entity("Todo_Manager.Models.TaskModel", b =>
                 {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
                     b.Property<bool>("Completed")
                         .HasColumnType("boolean");
 
@@ -44,7 +48,42 @@ namespace Todo_Manager.Migrations
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("timestamp with time zone");
 
+                    b.HasKey("Id");
+
                     b.ToTable("Tasks");
+                });
+
+            modelBuilder.Entity("Todo_Manager.Models.UserModel", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Role")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
                 });
 #pragma warning restore 612, 618
         }
