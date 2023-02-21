@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Todo_Manager.Data;
 using Todo_Manager.DTO.Authentication;
+using Todo_Manager.Helper;
 using Todo_Manager.Models;
 
 namespace Todo_Manager.Controllers.api;
@@ -17,10 +18,12 @@ public class AuthController : ControllerBase
 {
     private IConfiguration _config;
     private AppDbContext _appDbContext;
-    public AuthController(IConfiguration config, AppDbContext appDbContext)
+    private Hashing _hashing;
+    public AuthController(IConfiguration config, AppDbContext appDbContext, Hashing hashing)
     {
         _config = config;
         _appDbContext = appDbContext;
+        _hashing = hashing;
     }
 
     
@@ -36,20 +39,61 @@ public class AuthController : ControllerBase
                 success = false,
                 message = "Invalid username or password"
             });
-        var token = GenerateToken(user);
+        var accessToken = GenerateToken(user);
 
         return Ok(new
         {
             success = true,
-            token
+            message = "User has been logged successfully",
+            accessToken
         });
     }
+
+    [Route("registration")]
+    [HttpPost]
+    public async Task<IActionResult> Registration([FromBody] RegistrationDTO registrationDto)
+    {
+        if (registrationDto.Password != registrationDto.ConfirmPassword)
+            return BadRequest(new
+            {
+                success = false,
+                message = "Password and Confirm Password mismatch"
+            });
+        var user = await _appDbContext.Users.FirstOrDefaultAsync(user => user.Username == registrationDto.Username);
+        if (user != null)
+            return BadRequest(new
+            {
+                success = false,
+                message = "Username already exists"
+            });
+        var hashedPassword = _hashing.HashPassword(registrationDto.Password);
+        var newUser = new UserModel()
+        {
+            Username = registrationDto.Username,
+            Name = registrationDto.Name,
+            Password = hashedPassword,
+            Role = registrationDto.Role
+        };
+        await _appDbContext.Users.AddAsync(newUser);
+        await _appDbContext.SaveChangesAsync();
+        var accessToken = GenerateToken(newUser);
+        return Ok(new
+        {
+            success = true,
+            message = "User has been created",
+            accessToken,
+            data = newUser
+        });
+    }
+
 
     async private Task<UserModel> AuthenticateUser(LoginDTO loginDto)
     {
         var user = await _appDbContext.Users.FirstOrDefaultAsync(
-            user => user.Username == loginDto.Username && user.Password == loginDto.Password);
-        return user;
+            user => user.Username == loginDto.Username);
+        if(user != null && BCrypt.Net.BCrypt.Verify(loginDto.Password, user.Password))
+            return user;
+        return null;
     }
 
     private string GenerateToken(UserModel user)
@@ -59,9 +103,8 @@ public class AuthController : ControllerBase
         var claims = new[]
         {
             new Claim(ClaimTypes.Name, user.Role),
-            new Claim(ClaimTypes.Role, user.Role)
         };
-        var accessToken = new JwtSecurityToken(claims: claims, expires: DateTime.Now.AddMinutes(15), signingCredentials: credentials);
+        var accessToken = new JwtSecurityToken(claims: claims, expires: DateTime.Now.AddMinutes(60), signingCredentials: credentials);
         //var refreshToken = new JwtSecurityToken(claims: claims, expires: DateTime.Now.AddHours(24), signingCredentials: credentials);
         
         return new JwtSecurityTokenHandler().WriteToken(accessToken);

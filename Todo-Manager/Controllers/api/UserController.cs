@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Todo_Manager.Data;
 using Todo_Manager.DTO.User;
+using Todo_Manager.Helper;
 using Todo_Manager.Models;
 
 namespace Todo_Manager.Controllers.api;
@@ -13,21 +14,23 @@ namespace Todo_Manager.Controllers.api;
 public class UserController : ControllerBase
 {
     private readonly AppDbContext _appDbContext;
-
-    public UserController(AppDbContext appDbContext)
+    private readonly Hashing _hashing;
+    public UserController(AppDbContext appDbContext, Hashing hashing)
     {
         _appDbContext = appDbContext;
+        _hashing = hashing;
     }
     
     [HttpPost]
     [Authorize(Roles = "ADMIN")]
     public async Task<IActionResult> CreateUser(CreateUserDTO newUser)
     {
+        var hashedPassword = _hashing.HashPassword(newUser.Password);
         var user = new UserModel()
         {
             Username = newUser.Username,
             Name = newUser.Name,
-            Password = newUser.Password,
+            Password = hashedPassword,
             Role = newUser.Role
         };
 

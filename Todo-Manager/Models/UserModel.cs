@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using Microsoft.EntityFrameworkCore;
 
 namespace Todo_Manager.Models;
@@ -16,5 +17,6 @@ public class UserModel : BaseModel
     public string Password { get; set; }
     
     [Required]
+    [DefaultValue("USER")]
     public string Role { get; set; }
 }
