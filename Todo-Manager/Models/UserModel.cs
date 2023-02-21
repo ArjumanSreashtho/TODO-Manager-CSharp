@@ -1,7 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
 
 namespace Todo_Manager.Models;
 
+[Index(nameof(UserModel.Username), IsUnique=true)]
 public class UserModel : BaseModel
 {
     [Required]
