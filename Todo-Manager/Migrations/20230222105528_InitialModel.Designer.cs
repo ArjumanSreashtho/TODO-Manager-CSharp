@@ -12,8 +12,8 @@ using Todo_Manager.Data;
 namespace Todo_Manager.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230221044253_test")]
-    partial class test
+    [Migration("20230222105528_InitialModel")]
+    partial class InitialModel
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -82,6 +82,9 @@ namespace Todo_Manager.Migrations
                         .HasColumnType("text");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Username")
+                        .IsUnique();
 
                     b.ToTable("Users");
                 });

@@ -4,6 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Todo_Manager.Data;
 using Todo_Manager.Helper;
+using Todo_Manager.Services;
+using Todo_Manager.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,7 +24,10 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:SecrectKey"]))
     };
 });
-builder.Services.AddSingleton<Hashing>();
+builder.Services.AddSingleton<HashingPassword>();
+builder.Services.AddScoped<ITaskService, TaskService>();
+builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IUserService, UserService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

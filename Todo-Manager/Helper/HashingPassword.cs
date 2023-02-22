@@ -1,7 +1,7 @@
 ﻿
 namespace Todo_Manager.Helper;
 
-public class Hashing
+public class HashingPassword
 {
     private string GetRandomSalt()
     {
