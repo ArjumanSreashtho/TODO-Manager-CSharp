@@ -27,7 +27,8 @@ public class AuthService : IAuthService
     public async Task<string?> Login(LoginDTO loginDTO)
     {
         var user = await AuthenticateUser(loginDTO);
-        if (user == null) return null;
+        if (user == null)
+            throw new CustomException("Invalid username or password", 400);
         var accessToken = GenerateToken(user);
         return accessToken;
     }
@@ -35,10 +36,10 @@ public class AuthService : IAuthService
     public async Task<(string, UserModel)?> Registration(RegistrationDTO registrationDto)
     {
         if (registrationDto.Password != registrationDto.ConfirmPassword)
-            return ("Password and Confirm Password mismatch", null);
+            throw new CustomException("Password and Confirm Password mismatch", 400);
         var user = await _appDbContext.Users.FirstOrDefaultAsync(user => user.Username == registrationDto.Username);
         if (user != null)
-            return ("Username already exists", null);
+            throw new CustomException("Username already exists", 400);
         var hashedPassword = _hashingPassword.HashPassword(registrationDto.Password);
         var newUser = new UserModel()
         {

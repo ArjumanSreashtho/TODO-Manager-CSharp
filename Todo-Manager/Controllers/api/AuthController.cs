@@ -28,15 +28,8 @@ public class AuthController : ControllerBase
     public async Task<IActionResult> Login([FromBody] LoginDTO loginDTO)
     {
         var accessToken = await _authService.Login(loginDTO);
-        if (accessToken == null)
-            return NotFound(new
-            {
-                success = false,
-                message = "Invalid username or password"
-            });
         return Ok(new
         {
-            success = true,
             message = "User has been logged successfully",
             accessToken
         });
@@ -47,16 +40,9 @@ public class AuthController : ControllerBase
     public async Task<IActionResult> Registration([FromBody] RegistrationDTO registrationDto)
     {
         var result = await _authService.Registration(registrationDto);
-        if (result.Value.Item2 == null)
-            return BadRequest(new
-            {
-                success = false,
-                message = result.Value.Item1
-            });
         return Ok(new
         {
-            success = true,
-            message = "User has been created",
+            message = "User has been registered successfully",
             accessToken = result.Value.Item1,
             data = result.Value.Item2
         });

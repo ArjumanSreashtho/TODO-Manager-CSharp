@@ -12,8 +12,6 @@ namespace Todo_Manager.Controllers.api;
 [Authorize(Roles = "USER,ADMIN")]
 public class UserController : ControllerBase
 {
-    private readonly AppDbContext _appDbContext;
-    private readonly HashingPassword _hashingPassword;
     private readonly IUserService _userService;
     public UserController(IUserService userService)
     {
@@ -21,7 +19,6 @@ public class UserController : ControllerBase
     }
     
     [HttpPost]
-    [Authorize(Roles = "ADMIN")]
     public async Task<IActionResult> CreateUser(CreateUserDTO newUser)
     {
         var user = await _userService.CreateUser(newUser);
@@ -38,7 +35,20 @@ public class UserController : ControllerBase
             data = user
         });
     }
-    
+
+    [HttpGet]
+    [Route("{id:guid}")]
+    public async Task<IActionResult> GetUser([FromRoute] Guid id)
+    {
+        var user = await _userService.GetUser(id);
+        return Ok(new
+        {
+            success = true,
+            message = "User has been retrieved",
+            data = user
+        });
+    }
+
     [HttpGet]
     [Authorize(Roles = "ADMIN")]
     public async Task<IActionResult> GetUsers([FromQuery] bool? type = null, string search = "", int page = 1, int total = 10)
@@ -56,4 +66,31 @@ public class UserController : ControllerBase
             }
         });
     }
+
+    [HttpPut]
+    [Route("{id:guid}")]
+    public async Task<IActionResult> UpdateUser([FromRoute] Guid id, [FromBody] UpdateUserDTO updateUserDto)
+    {
+        var updatedUser = await _userService.UpdateUser(id, updateUserDto);
+        return Ok(new
+        {
+            success = true,
+            message = "User has been updated",
+            data = updatedUser
+        });
+    }
+
+    [HttpDelete]
+    [Route("{id:guid}")]
+    [Authorize(Roles = "ADMIN")]
+    public async Task<IActionResult> DeleteUser([FromRoute] Guid id)
+    {
+        var user = await _userService.DeleteUser(id);
+        return Ok(new
+        {
+            success = true,
+            message = "User has been deleted",
+        });
+    }
+
 }

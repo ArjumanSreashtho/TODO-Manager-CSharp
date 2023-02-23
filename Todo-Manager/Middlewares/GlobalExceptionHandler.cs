@@ -1,4 +1,5 @@
 ﻿using System.Net;
+using Todo_Manager.Helper;
 
 namespace Todo_Manager.Middlewares;
 
@@ -10,13 +11,13 @@ public class GlobalExceptionHandler : IMiddleware
         {
             await next(context);
         }
-        catch (Exception error)
+        catch (CustomException error)
         {
-            context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+            context.Response.StatusCode = error.ErrorCode;
             await context.Response.WriteAsJsonAsync(new
             {
                 success = false,
-                message = "Internal Server error"
+                message = error.Message
             });
         }
     }

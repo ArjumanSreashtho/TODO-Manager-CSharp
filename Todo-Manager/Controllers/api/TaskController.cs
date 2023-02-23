@@ -22,7 +22,6 @@ namespace Todo_Manager.Controllers.api
             var task = await _taskService.CreateTask(newTask);
             return Ok(new
             {
-                success = true,
                 message = "Task has been created",
                 data = task
             });
@@ -36,7 +35,6 @@ namespace Todo_Manager.Controllers.api
             
             return Ok(new
             {
-                success = true,
                 message = "Tasks have been retrieved",
                 data = new
                 {
@@ -51,15 +49,8 @@ namespace Todo_Manager.Controllers.api
         public async Task<IActionResult> GetTask([FromRoute] Guid id)
         {
             var task = await _taskService.GetTask(id);
-            if (task == null)
-                return NotFound(new
-                {
-                    success = false,
-                    message = "Not found"
-                });
             return Ok(new
             {
-                success = true,
                 message = "Task has been retrieved",
                 data = task
             });
@@ -70,17 +61,8 @@ namespace Todo_Manager.Controllers.api
         public async Task<IActionResult> UpdateTask([FromRoute] Guid id, UpdateTaskDTO updateTask)
         {
             var task = await _taskService.UpdateTask(id, updateTask);
-            if (task == null)
-            {
-                return NotFound(new
-                {
-                    success = false,
-                    message = "Not found"
-                });
-            }
             return Ok(new
             {
-                success = true,
                 message = "Task has been updated",
                 data = task
             });
@@ -90,18 +72,10 @@ namespace Todo_Manager.Controllers.api
         [Route("{id:guid}")]
         public async Task<IActionResult> DeleteTask([FromRoute] Guid id)
         {
-            var task = await _taskService.DeleteTask(id);
-            if (task == null)
-                return NotFound(new
-                {
-                    success = false,
-                    message = "Not found"
-                });
+            await _taskService.DeleteTask(id);
             return Ok(new
             {
-                success = true,
                 message = "Task has been deleted",
-                data = task
             });
         }
     }

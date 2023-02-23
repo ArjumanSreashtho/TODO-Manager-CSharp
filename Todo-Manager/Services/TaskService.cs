@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Todo_Manager.Data;
 using Todo_Manager.DTO.Task;
+using Todo_Manager.Helper;
 using Todo_Manager.Models;
 using Todo_Manager.Services.Interfaces;
 
@@ -44,13 +45,16 @@ public class TaskService : ITaskService
     public async Task<TaskModel> GetTask(Guid id)
     {
         var task = await _appDbContext.Tasks.FindAsync(id);
+        if (task == null)
+            throw new CustomException("Not found", 404);
         return task;
     }
 
     public async Task<TaskModel> UpdateTask(Guid id, UpdateTaskDTO updateTask)
     {
         var task = await _appDbContext.Tasks.FindAsync(id);
-        if (task == null) return task;
+        if (task == null)
+            throw new CustomException("Not found", 404);
         task.Title = updateTask.Title != null ? updateTask.Title : task.Title;
         task.Description = updateTask.Description != null ? updateTask.Description : task.Description;
         task.Completed = updateTask.Completed != null ? updateTask.Completed : task.Completed;
@@ -62,7 +66,7 @@ public class TaskService : ITaskService
     {
         var task = await _appDbContext.Tasks.FindAsync(id);
         if (task == null)
-            return task;
+            throw new CustomException("Not found", 404);
         _appDbContext.Tasks.Remove(task);
         await _appDbContext.SaveChangesAsync();
         return task;
