@@ -42,4 +42,18 @@ public class AppDbContext : DbContext
 
         return base.SaveChangesAsync(cancellationToken);
     }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<UserModel>().HasData(new UserModel()
+        {
+            Id = Guid.NewGuid(),
+            Name = "Arjuman Sreashtho",
+            Username = "Arjuman",
+            Password = "$2a$12$nTQDx/njEA9wGrX1P845CenRjAf/pREoHqflQrS3EgIkExEynh3/O",
+            CreatedAt = DateTime.UtcNow,
+            UpdatedAt = DateTime.UtcNow,
+            Role = "ADMIN"
+        });
+    }
 }
