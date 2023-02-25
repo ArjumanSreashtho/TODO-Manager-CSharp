@@ -11,17 +11,14 @@ namespace Todo_Manager.Controllers.api
     public class TaskController : ControllerBase
     {
         private readonly ITaskService _taskService;
-        private readonly HttpContext _httpContext;
-        public TaskController(ITaskService taskService, HttpContext httpContext) 
+        public TaskController(ITaskService taskService) 
         {
             _taskService = taskService;
-            _httpContext = httpContext;
         }
 
         [HttpPost]
         public async Task<IActionResult> CreateTask(CreateTaskDTO newTask)
         {
-            var identity = _httpContext.User.Claims.FirstOrDefault();
             var task = await _taskService.CreateTask(newTask);
             return Ok(new
             {

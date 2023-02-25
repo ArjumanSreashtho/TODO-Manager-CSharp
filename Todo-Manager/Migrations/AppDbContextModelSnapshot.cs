@@ -45,9 +45,6 @@ namespace Todo_Manager.Migrations
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uuid");
-
                     b.HasKey("Id");
 
                     b.ToTable("Tasks");
@@ -91,14 +88,58 @@ namespace Todo_Manager.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("f7998e77-427f-4c55-bc67-929352dab28f"),
-                            CreatedAt = new DateTime(2023, 2, 24, 16, 12, 27, 550, DateTimeKind.Utc).AddTicks(4688),
+                            Id = new Guid("173816b0-1382-452a-8928-c5d4fae7f8a1"),
+                            CreatedAt = new DateTime(2023, 2, 25, 0, 50, 11, 483, DateTimeKind.Utc).AddTicks(3098),
                             Name = "Arjuman Sreashtho",
                             Password = "$2a$12$nTQDx/njEA9wGrX1P845CenRjAf/pREoHqflQrS3EgIkExEynh3/O",
                             Role = "ADMIN",
-                            UpdatedAt = new DateTime(2023, 2, 24, 16, 12, 27, 550, DateTimeKind.Utc).AddTicks(4692),
+                            UpdatedAt = new DateTime(2023, 2, 25, 0, 50, 11, 483, DateTimeKind.Utc).AddTicks(3103),
                             Username = "Arjuman"
                         });
+                });
+
+            modelBuilder.Entity("Todo_Manager.Models.UserTaskModel", b =>
+                {
+                    b.Property<Guid>("TaskId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("TaskId", "UserId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserTask");
+                });
+
+            modelBuilder.Entity("Todo_Manager.Models.UserTaskModel", b =>
+                {
+                    b.HasOne("Todo_Manager.Models.TaskModel", "Task")
+                        .WithMany("UserTasks")
+                        .HasForeignKey("TaskId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Todo_Manager.Models.UserModel", "User")
+                        .WithMany("UserTasks")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Task");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Todo_Manager.Models.TaskModel", b =>
+                {
+                    b.Navigation("UserTasks");
+                });
+
+            modelBuilder.Entity("Todo_Manager.Models.UserModel", b =>
+                {
+                    b.Navigation("UserTasks");
                 });
 #pragma warning restore 612, 618
         }

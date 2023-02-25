@@ -10,10 +10,9 @@ public class TaskModel : BaseModel
     
     [Required]
     public string Description { get; set; }
-    
-    [Required]
-    public Guid UserId { get; set; }
-    
+
     [Required]
     public bool Completed { get; set; }
+    
+    public virtual ICollection<UserTaskModel> UserTasks { get; set; }
 }

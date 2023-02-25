@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Todo_Manager.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialModel : Migration
+    public partial class UserTaskRelationAdded : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -44,16 +44,53 @@ namespace Todo_Manager.Migrations
                     table.PrimaryKey("PK_Users", x => x.Id);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "UserTask",
+                columns: table => new
+                {
+                    UserId = table.Column<Guid>(type: "uuid", nullable: false),
+                    TaskId = table.Column<Guid>(type: "uuid", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserTask", x => new { x.TaskId, x.UserId });
+                    table.ForeignKey(
+                        name: "FK_UserTask_Tasks_TaskId",
+                        column: x => x.TaskId,
+                        principalTable: "Tasks",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_UserTask_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Users",
+                columns: new[] { "Id", "CreatedAt", "Name", "Password", "Role", "UpdatedAt", "Username" },
+                values: new object[] { new Guid("173816b0-1382-452a-8928-c5d4fae7f8a1"), new DateTime(2023, 2, 25, 0, 50, 11, 483, DateTimeKind.Utc).AddTicks(3098), "Arjuman Sreashtho", "$2a$12$nTQDx/njEA9wGrX1P845CenRjAf/pREoHqflQrS3EgIkExEynh3/O", "ADMIN", new DateTime(2023, 2, 25, 0, 50, 11, 483, DateTimeKind.Utc).AddTicks(3103), "Arjuman" });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Users_Username",
                 table: "Users",
                 column: "Username",
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UserTask_UserId",
+                table: "UserTask",
+                column: "UserId");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "UserTask");
+
             migrationBuilder.DropTable(
                 name: "Tasks");
 

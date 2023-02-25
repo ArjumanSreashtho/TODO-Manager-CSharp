@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
 using Todo_Manager.Data;
 using Todo_Manager.DTO.Task;
 using Todo_Manager.Helper;
@@ -19,15 +20,37 @@ public class TaskService : ITaskService
 
     public async Task<TaskModel> CreateTask(CreateTaskDTO newTask)
     {
-        var task = new TaskModel()
+        using (IDbContextTransaction transaction = await _appDbContext.Database.BeginTransactionAsync())
         {
-            Title = newTask.Title,
-            Description = newTask.Description,
-            Completed = newTask.Completed,
-        };
-        await _appDbContext.Tasks.AddAsync(task);
-        await _appDbContext.SaveChangesAsync();
-        return task;
+            try
+            {
+                var task = new TaskModel()
+                {
+                    Title = newTask.Title,
+                    Description = newTask.Description,
+                    Completed = newTask.Completed,
+                };
+                await _appDbContext.Tasks.AddAsync(task);
+                foreach (var userId in newTask.UserIds)
+                {
+                    await _appDbContext.UserTask.AddAsync(new UserTaskModel()
+                    {
+                        TaskId = task.Id,
+                        UserId = userId
+                    });
+                }
+                await _appDbContext.SaveChangesAsync();
+                await transaction.CommitAsync();
+                return task;
+            }
+            catch (Exception error)
+            {
+                 await transaction.RollbackAsync();
+                throw new CustomException(error.Message, 400);
+            }
+        }
+
+        
     }
 
     public async Task<int> CountTasks(bool? type = null, string search = "")
@@ -42,9 +65,30 @@ public class TaskService : ITaskService
         return tasksList;
     }
 
-    public async Task<TaskModel> GetTask(Guid id)
+    public async Task<TaskDTO> GetTask(Guid id)
     {
-        var task = await _appDbContext.Tasks.FindAsync(id);
+        var task = await _appDbContext.Tasks
+            .Where(task => task.Id == id)
+            .Include(task => task.UserTasks)
+            .ThenInclude(userTask => userTask.User)
+            .Select(task => new TaskDTO()
+            {
+                Id = task.Id,
+                Title = task.Title,
+                Description = task.Description,
+                Completed = task.Completed,
+                CreatedAt = task.CreatedAt,
+                UpdatedAt = task.UpdatedAt,
+                Users = task.UserTasks.Select(userTask => new
+                TaskUserDTO(){
+                    Id = userTask.User.Id,
+                    Name = userTask.User.Name,
+                    
+                }).ToList<TaskUserDTO>()
+                
+            })
+            .FirstOrDefaultAsync();
+            
         if (task == null)
             throw new CustomException("Not found", 404);
         return task;

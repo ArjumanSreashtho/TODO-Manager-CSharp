@@ -8,6 +8,7 @@ namespace Todo_Manager.Models;
 [Index(nameof(UserModel.Username), IsUnique=true)]
 public class UserModel : BaseModel
 {
+
     [Required]
     public string Username { get; set; }
     
@@ -20,4 +21,6 @@ public class UserModel : BaseModel
     [Required]
     [DefaultValue("USER")]
     public string Role { get; set; }
+    
+    public virtual ICollection<UserTaskModel> UserTasks { get; set; }
 }

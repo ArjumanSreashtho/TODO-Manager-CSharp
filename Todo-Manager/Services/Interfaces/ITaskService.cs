@@ -11,7 +11,7 @@ public interface ITaskService
     public Task<int> CountTasks(bool? type, string search);
     public Task<List<TaskModel>> GetTasks(bool? type, string search, int page, int total);
     
-    public Task<TaskModel> GetTask(Guid id);
+    public Task<TaskDTO> GetTask(Guid id);
     
     public Task<TaskModel> UpdateTask(Guid id, UpdateTaskDTO updateTask);
     

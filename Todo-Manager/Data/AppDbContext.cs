@@ -10,6 +10,8 @@ public class AppDbContext : DbContext
     public virtual DbSet<TaskModel> Tasks { get; set; }
     public virtual DbSet<UserModel> Users { get; set; }
     
+    public virtual DbSet<UserTaskModel> UserTask { get; set; }
+
     public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
     {
         var insertedEntries = this.ChangeTracker.Entries()
@@ -55,5 +57,19 @@ public class AppDbContext : DbContext
             UpdatedAt = DateTime.UtcNow,
             Role = "ADMIN"
         });
+
+        modelBuilder.Entity<UserTaskModel>()
+            .HasKey(userTask => new { userTask.TaskId, userTask.UserId });
+
+        modelBuilder.Entity<UserTaskModel>()
+            .HasOne(userTask => userTask.User)
+            .WithMany(userTask => userTask.UserTasks)
+            .HasForeignKey(userTask => userTask.UserId);
+
+        modelBuilder.Entity<UserTaskModel>()
+            .HasOne(userTask => userTask.Task)
+            .WithMany(userTask => userTask.UserTasks)
+            .HasForeignKey(userTask => userTask.TaskId);
+        
     }
 }

@@ -51,21 +51,35 @@ public class UserService : IUserService
         return totalUser;
     }
 
-    public async Task<RetrievedUserDTO> GetUser(Guid id)
+    public async Task<UserTaskDTO> GetUser(Guid id)
     {
-        var user = await _appDbContext.Users.FindAsync(id);
+        var user = await _appDbContext.Users
+            .Where(user => user.Id == id)
+            .Include(user => user.UserTasks)
+            .ThenInclude(userTask => userTask.Task)
+            .Select(user => new UserTaskDTO()
+            {
+                Id = user.Id,
+                Username = user.Username,
+                Name = user.Name,
+                Role = user.Role,
+                CreatedAt = user.CreatedAt,
+                UpdatedAt = user.UpdatedAt,
+                Tasks = user.UserTasks.Select(userTask => new TasksAssignedDTO()
+                {
+                    Id = userTask.TaskId,
+                    Title = userTask.Task.Title,
+                    CreatedAt = userTask.Task.CreatedAt,
+                    UpdatedAt = userTask.Task.UpdatedAt
+                    
+                }).ToList()
+            })
+            .FirstOrDefaultAsync();
+        System.Diagnostics.Debug.WriteLine("USERHELLO " + user);
         if (user == null)
             throw new CustomException("Not found", 404);
-        var userResponse = new RetrievedUserDTO()
-        {
-            Id = user.Id,
-            Name = user.Name,
-            Username = user.Username,
-            Role = user.Role,
-            CreatedAt = user.CreatedAt,
-            UpdatedAt = user.UpdatedAt
-        };
-        return userResponse;
+        
+        return user;
     }
 
     public async Task<List<RetrievedUserDTO>> GetUsers(bool? type = null, string search = "", int page = 1, int total = 10)
