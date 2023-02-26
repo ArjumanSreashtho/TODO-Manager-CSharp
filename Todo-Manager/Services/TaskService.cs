@@ -61,7 +61,8 @@ public class TaskService : ITaskService
 
     public async Task<List<TaskModel>> GetTasks(bool? type = null, string search = "", int page = 1, int total = 10)
     {
-        var tasksList = await _appDbContext.Tasks.Where(task => task.Title.Contains(search) && (type == null || task.Completed == type)).OrderByDescending(task => task.UpdatedAt).Skip((page - 1) * total).Take(total).ToListAsync();
+        System.Diagnostics.Debug.WriteLine("TOTAL " + total + " " + page);
+        var tasksList = await _appDbContext.Tasks.Where(task => task.Title.Contains(search) && (type == null || task.Completed == type)).OrderByDescending(task => task.CreatedAt).Skip((page - 1) * total).Take(total).ToListAsync();
         return tasksList;
     }
 
@@ -84,7 +85,7 @@ public class TaskService : ITaskService
                     Id = userTask.User.Id,
                     Name = userTask.User.Name,
                     
-                }).ToList<TaskUserDTO>()
+                }).ToList()
                 
             })
             .FirstOrDefaultAsync();

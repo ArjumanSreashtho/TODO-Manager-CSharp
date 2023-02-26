@@ -31,7 +31,7 @@ namespace Todo_Manager.Controllers.api
         public async Task<IActionResult> GetTasks([FromQuery] bool? type = null, string search = "", int page = 1, int total = 10)
         {
             var totalTasks = await _taskService.CountTasks(type, search);
-            var tasksList = await _taskService.GetTasks(type, search, page, totalTasks);
+            var tasksList = await _taskService.GetTasks(type, search, page, total);
             
             return Ok(new
             {

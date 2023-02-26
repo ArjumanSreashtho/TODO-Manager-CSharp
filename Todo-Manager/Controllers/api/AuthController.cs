@@ -30,7 +30,6 @@ public class AuthController : ControllerBase
         var accessToken = await _authService.Login(loginDTO);
         return Ok(new
         {
-            message = "User has been logged successfully",
             accessToken
         });
     }
@@ -42,7 +41,6 @@ public class AuthController : ControllerBase
         var result = await _authService.Registration(registrationDto);
         return Ok(new
         {
-            message = "User has been registered successfully",
             accessToken = result.Value.Item1,
             data = result.Value.Item2
         });
