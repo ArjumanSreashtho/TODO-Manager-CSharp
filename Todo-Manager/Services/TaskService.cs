@@ -31,12 +31,12 @@ public class TaskService : ITaskService
                     Completed = newTask.Completed,
                 };
                 await _appDbContext.Tasks.AddAsync(task);
-                foreach (var userId in newTask.UserIds)
+                foreach (var user in newTask.Users)
                 {
                     await _appDbContext.UserTask.AddAsync(new UserTaskModel()
                     {
                         TaskId = task.Id,
-                        UserId = userId
+                        UserId = user.Id
                     });
                 }
                 await _appDbContext.SaveChangesAsync();

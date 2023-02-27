@@ -1,4 +1,7 @@
-﻿namespace Todo_Manager.DTO.Task
+﻿using Todo_Manager.DTO.User;
+using Todo_Manager.Models;
+
+namespace Todo_Manager.DTO.Task
 {
     public class CreateTaskDTO
     {
@@ -6,6 +9,6 @@
         public string Description { get; set; }
         public bool Completed { get; set; }
         
-        public ICollection<Guid> UserIds { get; set; }
+        public ICollection<RetrievedUserDTO> Users { get; set; }
     }
 }

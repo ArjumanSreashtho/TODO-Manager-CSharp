@@ -51,10 +51,10 @@ public class UserService : IUserService
         return totalUser;
     }
 
-    public async Task<UserTaskDTO> GetUser(Guid id)
+    public async Task<UserTaskDTO> GetUser(string username)
     {
         var user = await _appDbContext.Users
-            .Where(user => user.Id == id)
+            .Where(user => user.Username == username)
             .Include(user => user.UserTasks)
             .ThenInclude(userTask => userTask.Task)
             .Select(user => new UserTaskDTO()
@@ -75,7 +75,6 @@ public class UserService : IUserService
                 }).ToList()
             })
             .FirstOrDefaultAsync();
-        System.Diagnostics.Debug.WriteLine("USERHELLO " + user);
         if (user == null)
             throw new CustomException("Not found", 404);
         
@@ -93,6 +92,20 @@ public class UserService : IUserService
             CreatedAt = user.CreatedAt,
             UpdatedAt = user.UpdatedAt
             
+        }).ToListAsync();
+        return userList;
+    }
+
+    public async Task<List<RetrievedUserDTO>> GetWorkableUsers()
+    {
+        var userList = await _appDbContext.Users.Select(user => new RetrievedUserDTO()
+        {
+            Id = user.Id,
+            Name = user.Name,
+            Username = user.Username,
+            Role = user.Role,
+            CreatedAt = user.CreatedAt,
+            UpdatedAt = user.UpdatedAt
         }).ToListAsync();
         return userList;
     }

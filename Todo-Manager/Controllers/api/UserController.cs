@@ -22,28 +22,22 @@ public class UserController : ControllerBase
     public async Task<IActionResult> CreateUser(CreateUserDTO newUser)
     {
         var user = await _userService.CreateUser(newUser);
-        if (user == null)
-            return BadRequest(new
-            {
-                success = false,
-                message = "Username already exists",
-            });
         return Ok(new
         {
-            success = true,
             message = "User has been created",
             data = user
         });
     }
 
     [HttpGet]
-    [Route("{id:guid}")]
-    public async Task<IActionResult> GetUser([FromRoute] Guid id)
+    [Route("profile")]
+    public async Task<IActionResult> GetUser()
     {
-        var user = await _userService.GetUser(id);
+        var principal = HttpContext.User;
+        var username = principal?.Claims.SingleOrDefault(claim => claim.Type.Contains("nameidentifier"))?.Value;
+        var user = await _userService.GetUser(username);
         return Ok(new
         {
-            success = true,
             message = "User has been retrieved",
             data = user
         });
@@ -57,13 +51,23 @@ public class UserController : ControllerBase
         var userList = await _userService.GetUsers(type, search, page, total);
         return Ok(new
         {
-            success = true,
             message = "Tasks have been retrieved",
             data = new
             {
                 total = totalUsers,
                 list = userList
             }
+        });
+    }
+
+    [HttpGet]
+    [Route("workable")]
+    public async Task<IActionResult> GetWorkableUsers()
+    {
+        var userList = await _userService.GetWorkableUsers();
+        return Ok(new
+        {
+            data = userList
         });
     }
 
@@ -74,7 +78,6 @@ public class UserController : ControllerBase
         var updatedUser = await _userService.UpdateUser(id, updateUserDto);
         return Ok(new
         {
-            success = true,
             message = "User has been updated",
             data = updatedUser
         });
@@ -88,7 +91,6 @@ public class UserController : ControllerBase
         var user = await _userService.DeleteUser(id);
         return Ok(new
         {
-            success = true,
             message = "User has been deleted",
         });
     }
