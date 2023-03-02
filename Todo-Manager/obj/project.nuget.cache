@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "h0HLvGPvUGLrsFKA2pPiJ9XCTvOt8FfVHhe2rNO5VkKIeBkRqAsmb4YP0g/ntITICMds5LoqPiHs376SVIEQWw==",
+  "dgSpecHash": "c3If/+hHvXlnUjVNReLTB5MwQQ9nBGdAJ0ttrnCPYDzuhH6aMxy97dni9umVyVAvbi6GEq8DYaL9sJCMggYmUg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\Todo-Manager.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Newcomer\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
+    "C:\\Users\\Newcomer\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
     "C:\\Users\\Newcomer\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\Newcomer\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Newcomer\\.nuget\\packages\\microsoft.aspnet.webapi\\5.2.9\\microsoft.aspnet.webapi.5.2.9.nupkg.sha512",

@@ -71,7 +71,7 @@ public class UserController : ControllerBase
         });
     }
 
-    [HttpPut]
+    [HttpPatch]
     [Route("{id:guid}")]
     public async Task<IActionResult> UpdateUser([FromRoute] Guid id, [FromBody] UpdateUserDTO updateUserDto)
     {

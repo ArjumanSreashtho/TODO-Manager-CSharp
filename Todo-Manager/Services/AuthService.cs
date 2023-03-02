@@ -16,13 +16,11 @@ public class AuthService : IAuthService
 {
     private readonly AppDbContext _appDbContext;
     private readonly IConfiguration _config;
-    private readonly HashingPassword _hashingPassword;
     
-    public AuthService(IConfiguration config, AppDbContext appDbContext, HashingPassword hashingPassword)
+    public AuthService(IConfiguration config, AppDbContext appDbContext)
     {
         _appDbContext = appDbContext;
         _config = config;
-        _hashingPassword = hashingPassword;
     }
     public async Task<string?> Login(LoginDTO loginDTO)
     {
@@ -40,7 +38,7 @@ public class AuthService : IAuthService
         var user = await _appDbContext.Users.FirstOrDefaultAsync(user => user.Username == registrationDto.Username);
         if (user != null)
             throw new CustomException("Username already exists", 400);
-        var hashedPassword = _hashingPassword.HashPassword(registrationDto.Password);
+        var hashedPassword = HashingPassword.HashPassword(registrationDto.Password);
         var newUser = new UserModel()
         {
             Username = registrationDto.Username,

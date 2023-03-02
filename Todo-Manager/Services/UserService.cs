@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using Todo_Manager.Data;
 using Todo_Manager.DTO.User;
 using Todo_Manager.Helper;
@@ -10,38 +11,23 @@ namespace Todo_Manager.Services;
 public class UserService : IUserService
 {
     private readonly AppDbContext _appDbContext;
-    private readonly HashingPassword _hashingPassword;
-    public UserService(AppDbContext appDbContext, HashingPassword hashingPassword)
+    private readonly IMapper _mapper;
+    public UserService(AppDbContext appDbContext, IMapper mapper)
     {
         _appDbContext = appDbContext;
-        _hashingPassword = hashingPassword;
+        _mapper = mapper;
     }
     public async Task<RetrievedUserDTO> CreateUser(CreateUserDTO user)
     {
         var existingUser = await _appDbContext.Users.FirstOrDefaultAsync(exUser => exUser.Username == user.Username);
         if (existingUser != null)
             throw new CustomException("Username already exists", 400);
-        var hashedPassword = _hashingPassword.HashPassword(user.Password);
-        var newUser = new UserModel()
-        {
-            Username = user.Username,
-            Name = user.Name,
-            Password = hashedPassword,
-            Role = user.Role
-        };
-
+        
+        var newUser = _mapper.Map<UserModel>(user);
+        
         await _appDbContext.Users.AddAsync(newUser);
         await _appDbContext.SaveChangesAsync();
-        var userResponse = new RetrievedUserDTO()
-        {
-            Id = newUser.Id,
-            Name = newUser.Name,
-            Username = newUser.Username,
-            Role = newUser.Role,
-            CreatedAt = newUser.CreatedAt,
-            UpdatedAt = newUser.UpdatedAt
-
-        };
+        var userResponse = _mapper.Map<RetrievedUserDTO>(newUser);
         return userResponse;
     }
 
@@ -57,56 +43,22 @@ public class UserService : IUserService
             .Where(user => user.Username == username)
             .Include(user => user.UserTasks)
             .ThenInclude(userTask => userTask.Task)
-            .Select(user => new UserTaskDTO()
-            {
-                Id = user.Id,
-                Username = user.Username,
-                Name = user.Name,
-                Role = user.Role,
-                CreatedAt = user.CreatedAt,
-                UpdatedAt = user.UpdatedAt,
-                Tasks = user.UserTasks.Select(userTask => new TasksAssignedDTO()
-                {
-                    Id = userTask.TaskId,
-                    Title = userTask.Task.Title,
-                    CreatedAt = userTask.Task.CreatedAt,
-                    UpdatedAt = userTask.Task.UpdatedAt
-                    
-                }).ToList()
-            })
             .FirstOrDefaultAsync();
         if (user == null)
             throw new CustomException("Not found", 404);
-        
-        return user;
+        var userResponse = _mapper.Map<UserTaskDTO>(user);
+        return userResponse;
     }
 
     public async Task<List<RetrievedUserDTO>> GetUsers(bool? type = null, string search = "", int page = 1, int total = 10)
     {
-        var userList = await _appDbContext.Users.Where(user => user.Name.Contains(search)).OrderByDescending(user => user.UpdatedAt).Skip((page - 1) * total).Take(total).Select(user => new RetrievedUserDTO()
-        {
-            Id = user.Id,
-            Name = user.Name,
-            Username = user.Username,
-            Role = user.Role,
-            CreatedAt = user.CreatedAt,
-            UpdatedAt = user.UpdatedAt
-            
-        }).ToListAsync();
+        var userList = await _appDbContext.Users.Where(user => user.Name.Contains(search)).OrderByDescending(user => user.UpdatedAt).Skip((page - 1) * total).Take(total).Select(user => _mapper.Map<RetrievedUserDTO>(user)).ToListAsync();
         return userList;
     }
 
     public async Task<List<RetrievedUserDTO>> GetWorkableUsers()
     {
-        var userList = await _appDbContext.Users.Select(user => new RetrievedUserDTO()
-        {
-            Id = user.Id,
-            Name = user.Name,
-            Username = user.Username,
-            Role = user.Role,
-            CreatedAt = user.CreatedAt,
-            UpdatedAt = user.UpdatedAt
-        }).ToListAsync();
+        var userList = await _appDbContext.Users.Select(user => _mapper.Map<RetrievedUserDTO>(user)).ToListAsync();
         return userList;
     }
 
@@ -125,30 +77,19 @@ public class UserService : IUserService
         user.Name = updateUserDto.Name != null ? updateUserDto.Name : user.Name;
         user.Username = updateUserDto.Username != null ? updateUserDto.Username : user.Username;
 
-        var userResponse = new RetrievedUserDTO()
-        {
-            Id = user.Id,
-            Name = user.Name,
-            Username = user.Username,
-            Role = user.Role,
-            CreatedAt = user.CreatedAt,
-            UpdatedAt = user.UpdatedAt
-        };
+        var userResponse = _mapper.Map<RetrievedUserDTO>(user);
+        
         return userResponse;
     }
 
     public async Task<RetrievedUserDTO> DeleteUser(Guid id)
     {
-        var existingUser = await _appDbContext.Users.FindAsync(id);
-        if (existingUser == null)
+        var user = await _appDbContext.Users.FindAsync(id);
+        if (user == null)
             throw new CustomException("Not found", 404);
-        _appDbContext.Remove(existingUser);
+        _appDbContext.Remove(user);
         await _appDbContext.SaveChangesAsync();
-        var userResponse = new RetrievedUserDTO()
-        {
-            Name = existingUser.Name,
-            Username = existingUser.Username
-        };
+        var userResponse = _mapper.Map<RetrievedUserDTO>(user);
         return userResponse;
     }
 }
