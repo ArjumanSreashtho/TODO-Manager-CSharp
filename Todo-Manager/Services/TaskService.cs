@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 using Todo_Manager.Data;
@@ -12,10 +13,12 @@ namespace Todo_Manager.Services;
 public class TaskService : ITaskService
 {
     private readonly AppDbContext _appDbContext;
+    private readonly IMapper _mapper;
 
-    public TaskService(AppDbContext appDbContext)
+    public TaskService(AppDbContext appDbContext, IMapper mapper)
     {
         _appDbContext = appDbContext;
+        _mapper = mapper;
     }
 
     public async Task<TaskModel> CreateTask(CreateTaskDTO newTask)
@@ -24,12 +27,7 @@ public class TaskService : ITaskService
         {
             try
             {
-                var task = new TaskModel()
-                {
-                    Title = newTask.Title,
-                    Description = newTask.Description,
-                    Completed = newTask.Completed,
-                };
+                var task = _mapper.Map<TaskModel>(newTask);
                 await _appDbContext.Tasks.AddAsync(task);
                 foreach (var user in newTask.Users)
                 {
@@ -49,8 +47,6 @@ public class TaskService : ITaskService
                 throw new CustomException(error.Message, 400);
             }
         }
-
-        
     }
 
     public async Task<int> CountTasks(bool? type = null, string search = "")
@@ -61,7 +57,6 @@ public class TaskService : ITaskService
 
     public async Task<List<TaskModel>> GetTasks(bool? type = null, string search = "", int page = 1, int total = 10)
     {
-        System.Diagnostics.Debug.WriteLine("TOTAL " + total + " " + page);
         var tasksList = await _appDbContext.Tasks.Where(task => task.Title.Contains(search) && (type == null || task.Completed == type)).OrderByDescending(task => task.CreatedAt).Skip((page - 1) * total).Take(total).ToListAsync();
         return tasksList;
     }
@@ -72,27 +67,12 @@ public class TaskService : ITaskService
             .Where(task => task.Id == id)
             .Include(task => task.UserTasks)
             .ThenInclude(userTask => userTask.User)
-            .Select(task => new TaskDTO()
-            {
-                Id = task.Id,
-                Title = task.Title,
-                Description = task.Description,
-                Completed = task.Completed,
-                CreatedAt = task.CreatedAt,
-                UpdatedAt = task.UpdatedAt,
-                Users = task.UserTasks.Select(userTask => new
-                TaskUserDTO(){
-                    Id = userTask.User.Id,
-                    Name = userTask.User.Name,
-                    
-                }).ToList()
-                
-            })
             .FirstOrDefaultAsync();
             
         if (task == null)
             throw new CustomException("Not found", 404);
-        return task;
+        var response = _mapper.Map<TaskDTO>(task);
+        return response;
     }
 
     public async Task<TaskModel> UpdateTask(Guid id, UpdateTaskDTO updateTask)
