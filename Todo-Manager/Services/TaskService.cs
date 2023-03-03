@@ -29,12 +29,12 @@ public class TaskService : ITaskService
             {
                 var task = _mapper.Map<TaskModel>(newTask);
                 await _appDbContext.Tasks.AddAsync(task);
-                foreach (var user in newTask.Users)
+                foreach (var userId in newTask.Users)
                 {
                     await _appDbContext.UserTask.AddAsync(new UserTaskModel()
                     {
                         TaskId = task.Id,
-                        UserId = user.Id
+                        UserId = userId
                     });
                 }
                 await _appDbContext.SaveChangesAsync();

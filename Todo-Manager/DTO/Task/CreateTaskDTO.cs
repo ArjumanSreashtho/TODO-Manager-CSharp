@@ -9,6 +9,6 @@ namespace Todo_Manager.DTO.Task
         public string Description { get; set; }
         public bool Completed { get; set; }
         
-        public ICollection<RetrievedUserDTO> Users { get; set; }
+        public ICollection<Guid> Users { get; set; }
     }
 }
