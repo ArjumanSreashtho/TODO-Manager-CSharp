@@ -1,19 +1,19 @@
 ﻿
 namespace Todo_Manager.Helper;
 
-public class HashingPassword
+public static class HashingPassword
 {
-    private string GetRandomSalt()
+    private static string GetRandomSalt()
     {
         return BCrypt.Net.BCrypt.GenerateSalt(12);
     }
 
-    public string HashPassword(string password)
+    public static string HashPassword(string password)
     {
         return BCrypt.Net.BCrypt.HashPassword(password, GetRandomSalt());
     }
 
-    public bool ValidatePassword(string password, string correctHash)
+    public static bool ValidatePassword(string password, string correctHash)
     {
         return BCrypt.Net.BCrypt.Verify(password, correctHash);
     }
