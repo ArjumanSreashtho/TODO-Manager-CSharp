@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 using Todo_Manager.Data;
@@ -12,10 +13,11 @@ namespace Todo_Manager.Services;
 public class TaskService : ITaskService
 {
     private readonly AppDbContext _appDbContext;
-
-    public TaskService(AppDbContext appDbContext)
+    private readonly IMapper _mapper;
+    public TaskService(AppDbContext appDbContext, IMapper mapper)
     {
         _appDbContext = appDbContext;
+        _mapper = mapper;
     }
 
     public async Task<TaskModel> CreateTask(CreateTaskDTO newTask)
@@ -72,27 +74,12 @@ public class TaskService : ITaskService
             .Where(task => task.Id == id)
             .Include(task => task.UserTasks)
             .ThenInclude(userTask => userTask.User)
-            .Select(task => new TaskDTO()
-            {
-                Id = task.Id,
-                Title = task.Title,
-                Description = task.Description,
-                Completed = task.Completed,
-                CreatedAt = task.CreatedAt,
-                UpdatedAt = task.UpdatedAt,
-                Users = task.UserTasks.Select(userTask => new
-                TaskUserDTO(){
-                    Id = userTask.User.Id,
-                    Name = userTask.User.Name,
-                    
-                }).ToList()
-                
-            })
             .FirstOrDefaultAsync();
             
         if (task == null)
             throw new CustomException("Not found", 404);
-        return task;
+        var taskResponse = _mapper.Map<TaskDTO>(task);
+        return taskResponse;
     }
 
     public async Task<TaskModel> UpdateTask(Guid id, UpdateTaskDTO updateTask)
@@ -100,9 +87,12 @@ public class TaskService : ITaskService
         var task = await _appDbContext.Tasks.FindAsync(id);
         if (task == null)
             throw new CustomException("Not found", 404);
-        task.Title = updateTask.Title != null ? updateTask.Title : task.Title;
-        task.Description = updateTask.Description != null ? updateTask.Description : task.Description;
-        task.Completed = updateTask.Completed != null ? updateTask.Completed : task.Completed;
+        
+        // task.Title = updateTask.Title != null ? updateTask.Title : task.Title;
+        // task.Description = updateTask.Description != null ? updateTask.Description : task.Description;
+        // task.Completed = updateTask.Completed != null ? updateTask.Completed : task.Completed;
+        
+        task = _mapper.Map<UpdateTaskDTO, TaskModel>(updateTask, task);
         await _appDbContext.SaveChangesAsync();
         return task;
     }

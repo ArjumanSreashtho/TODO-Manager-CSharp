@@ -56,7 +56,7 @@ namespace Todo_Manager.Controllers.api
             });
         }
 
-        [HttpPut]
+        [HttpPatch]
         [Route("{id:guid}")]
         public async Task<IActionResult> UpdateTask([FromRoute] Guid id, UpdateTaskDTO updateTask)
         {
