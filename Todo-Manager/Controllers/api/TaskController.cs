@@ -80,7 +80,6 @@ namespace Todo_Manager.Controllers.api
         [Route("{id:guid}")]
         public async Task<IActionResult> UpdateTask([FromRoute] Guid id, UpdateTaskDTO updateTask)
         {
-            // var task = await _taskService.UpdateTask(id, updateTask);
             var task = await _mediator.Send(new UpdateTaskCommand()
             {
                 Id = id,
