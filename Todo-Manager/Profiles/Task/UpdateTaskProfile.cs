@@ -1,6 +1,13 @@
-﻿namespace Todo_Manager.Profiles.Task;
+﻿using AutoMapper;
+using Todo_Manager.DTO.Task;
+using Todo_Manager.Models;
 
-public class UpdateTaskProfile
+namespace Todo_Manager.Profiles.Task;
+
+public class UpdateTaskProfile : Profile
 {
-    
+    public UpdateTaskProfile()
+    {
+        CreateMap<UpdateTaskDTO, TaskModel>();
+    }
 }
