@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Todo_Manager.Data;
+using Todo_Manager.Domain.Users.Queries;
 using Todo_Manager.DTO.User;
 using Todo_Manager.Helper;
 using Todo_Manager.Services.Interfaces;
@@ -38,7 +39,10 @@ public class UserController : ControllerBase
     {
         var principal = HttpContext.User;
         var username = principal?.Claims.SingleOrDefault(claim => claim.Type.Contains("nameidentifier"))?.Value;
-        var user = await _userService.GetUser(username);
+        var user = await _mediator.Send(new GetUserQuery()
+        {
+            Username = username
+        });
         return Ok(new
         {
             message = "User has been retrieved",
@@ -48,10 +52,19 @@ public class UserController : ControllerBase
 
     [HttpGet]
     [Authorize(Roles = "ADMIN")]
-    public async Task<IActionResult> GetUsers([FromQuery] bool? type = null, string search = "", int page = 1, int total = 10)
+    public async Task<IActionResult> GetUsers([FromQuery] string search = "", int page = 1, int total = 10)
     {
-        var totalUsers = await _userService.CountUsers(type, search);
-        var userList = await _userService.GetUsers(type, search, page, total);
+        var totalUsers = await _mediator.Send(new GetCountAllUsersQuery()
+        {
+            Search = search
+        });
+        
+        var userList = await _mediator.Send(new GetAllUsersQuery()
+        {
+            Search = search,
+            Page = page,
+            Total = total
+        });
         return Ok(new
         {
             message = "Tasks have been retrieved",
@@ -67,7 +80,7 @@ public class UserController : ControllerBase
     [Route("workable")]
     public async Task<IActionResult> GetWorkableUsers()
     {
-        var userList = await _userService.GetWorkableUsers();
+        var userList = await _mediator.Send(new GetAllWorkableUsersQuery());
         return Ok(new
         {
             data = userList
