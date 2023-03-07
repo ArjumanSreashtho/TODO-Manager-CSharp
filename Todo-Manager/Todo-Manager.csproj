@@ -29,6 +29,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Folder Include="Domain\Users\Queries\Handlers" />
       <Folder Include="Migrations" />
     </ItemGroup>
 
