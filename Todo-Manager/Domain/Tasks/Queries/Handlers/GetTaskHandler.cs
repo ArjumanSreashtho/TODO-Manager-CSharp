@@ -25,7 +25,6 @@ public class GetTaskHandler : IRequestHandler<GetTaskQuery, TaskDTO>
             .Include(task => task.UserTasks)
             .ThenInclude(userTask => userTask.User)
             .FirstOrDefaultAsync();
-        System.Diagnostics.Debug.WriteLine("abcde " + task.Id);
         if (task == null)
             throw new CustomException("Not found", 404);
         var response = _mapper.Map<TaskDTO>(task);
