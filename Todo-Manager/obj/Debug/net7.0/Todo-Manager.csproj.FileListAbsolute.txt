@@ -122,3 +122,5 @@ C:\Users\Newcomer\WellDev\Projects\TODO-Manager-CSharp\Todo-Manager\bin\Debug\ne
 C:\Users\Newcomer\WellDev\Projects\TODO-Manager-CSharp\Todo-Manager\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\Newcomer\WellDev\Projects\TODO-Manager-CSharp\Todo-Manager\bin\Debug\net7.0\MediatR.dll
 C:\Users\Newcomer\WellDev\Projects\TODO-Manager-CSharp\Todo-Manager\bin\Debug\net7.0\MediatR.Contracts.dll
+C:\Users\Arjuman Sreashtho\RiderProjects\Todo-Manager\Todo-Manager\bin\Debug\net7.0\MediatR.dll
+C:\Users\Arjuman Sreashtho\RiderProjects\Todo-Manager\Todo-Manager\bin\Debug\net7.0\MediatR.Contracts.dll

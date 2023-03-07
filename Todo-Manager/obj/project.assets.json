@@ -2150,19 +2150,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Newcomer\\.nuget\\packages\\": {}
+    "C:\\Users\\Arjuman Sreashtho\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\Todo-Manager.csproj",
+      "projectUniqueName": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\Todo-Manager.csproj",
       "projectName": "Todo-Manager",
-      "projectPath": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\Todo-Manager.csproj",
-      "packagesPath": "C:\\Users\\Newcomer\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\obj\\",
+      "projectPath": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\Todo-Manager.csproj",
+      "packagesPath": "C:\\Users\\Arjuman Sreashtho\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Newcomer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Arjuman Sreashtho\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2260,17 +2260,11 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
       }
     }
   },
   "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    },
     {
       "code": "NU1701",
       "level": "Warning",
