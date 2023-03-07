@@ -29,7 +29,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Domain\Tasks\Commands\Handlers" />
       <Folder Include="Migrations" />
     </ItemGroup>
 

@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Todo_Manager.Data;
+using Todo_Manager.Domain.Tasks.Commands;
+using Todo_Manager.Domain.Tasks.Commands.Handlers;
 using Todo_Manager.Middlewares;
 using Todo_Manager.Services;
 using Todo_Manager.Services.Interfaces;
@@ -32,6 +34,7 @@ builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddTransient<GlobalExceptionHandler>();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<Program>());
+//builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<CreateTaskHandler>());
 
 var app = builder.Build();
 

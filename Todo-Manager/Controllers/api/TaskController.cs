@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Todo_Manager.Domain.Tasks.Commands;
 using Todo_Manager.Domain.Tasks.Queries;
 using Todo_Manager.DTO.Task;
 using Todo_Manager.Services.Interfaces;
@@ -21,13 +22,16 @@ namespace Todo_Manager.Controllers.api
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateTask(CreateTaskDTO newTask)
+        public async Task<IActionResult> CreateTask(CreateTaskDTO task)
         {
-            var task = await _taskService.CreateTask(newTask);
+            var newTask = await _mediator.Send(new CreateTaskCommand()
+            {
+                Task = task
+            });
             return Ok(new
             {
                 message = "Task has been created",
-                data = task
+                data = newTask
             });
         }
 
@@ -61,11 +65,10 @@ namespace Todo_Manager.Controllers.api
         [Route("{id:guid}")]
         public async Task<IActionResult> GetTask([FromRoute] Guid id)
         {
-            var task = await _taskService.GetTask(id);
-            // var task = await _mediator.Send(new GetTaskQuery()
-            // {
-            //     Id = id
-            // });
+            var task = await _mediator.Send(new GetTaskQuery()
+            {
+                Id = id
+            });
             return Ok(new
             {
                 message = "Task has been retrieved",
@@ -77,7 +80,12 @@ namespace Todo_Manager.Controllers.api
         [Route("{id:guid}")]
         public async Task<IActionResult> UpdateTask([FromRoute] Guid id, UpdateTaskDTO updateTask)
         {
-            var task = await _taskService.UpdateTask(id, updateTask);
+            // var task = await _taskService.UpdateTask(id, updateTask);
+            var task = await _mediator.Send(new UpdateTaskCommand()
+            {
+                Id = id,
+                UpdateTask = updateTask
+            });
             return Ok(new
             {
                 message = "Task has been updated",
@@ -89,7 +97,10 @@ namespace Todo_Manager.Controllers.api
         [Route("{id:guid}")]
         public async Task<IActionResult> DeleteTask([FromRoute] Guid id)
         {
-            await _taskService.DeleteTask(id);
+            await _mediator.Send(new DeleteTaskCommand()
+            {
+                Id = id
+            });
             return Ok(new
             {
                 message = "Task has been deleted",
