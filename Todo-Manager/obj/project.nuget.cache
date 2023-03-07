@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "c3If/+hHvXlnUjVNReLTB5MwQQ9nBGdAJ0ttrnCPYDzuhH6aMxy97dni9umVyVAvbi6GEq8DYaL9sJCMggYmUg==",
+  "dgSpecHash": "cnFEznDoDvjkxYNf+4VXy85NYB/XiN/0utcyCqiJhn9+HTrueJJRCtZ7aKjmZmyrMTi/rNxXYZ6tXCKZZHSfdA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\Todo-Manager.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,8 @@
     "C:\\Users\\Newcomer\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
     "C:\\Users\\Newcomer\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\Newcomer\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\Newcomer\\.nuget\\packages\\mediatr\\12.0.1\\mediatr.12.0.1.nupkg.sha512",
+    "C:\\Users\\Newcomer\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
     "C:\\Users\\Newcomer\\.nuget\\packages\\microsoft.aspnet.webapi\\5.2.9\\microsoft.aspnet.webapi.5.2.9.nupkg.sha512",
     "C:\\Users\\Newcomer\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.9\\microsoft.aspnet.webapi.client.5.2.9.nupkg.sha512",
     "C:\\Users\\Newcomer\\.nuget\\packages\\microsoft.aspnet.webapi.core\\5.2.9\\microsoft.aspnet.webapi.core.5.2.9.nupkg.sha512",
@@ -54,6 +56,12 @@
     "C:\\Users\\Newcomer\\.nuget\\packages\\system.text.json\\7.0.0\\system.text.json.7.0.0.nupkg.sha512"
   ],
   "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    },
     {
       "code": "NU1701",
       "level": "Warning",

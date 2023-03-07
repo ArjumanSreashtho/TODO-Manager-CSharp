@@ -1,87 +1,87 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\Todo-Manager.bundle.scp.css",
+      "Id": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\Todo-Manager.bundle.scp.css",
       "PackagePath": "staticwebassets\\Todo-Manager.bundle.scp.css"
     },
     {
-      "Id": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\asset-manifest.json",
+      "Id": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\asset-manifest.json",
       "PackagePath": "staticwebassets\\asset-manifest.json"
     },
     {
-      "Id": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\css\\main.ae9691f6.css",
+      "Id": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\css\\main.ae9691f6.css",
       "PackagePath": "staticwebassets\\css\\main.ae9691f6.css"
     },
     {
-      "Id": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\css\\main.ae9691f6.css.map",
+      "Id": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\css\\main.ae9691f6.css.map",
       "PackagePath": "staticwebassets\\css\\main.ae9691f6.css.map"
     },
     {
-      "Id": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\favicon.ico",
+      "Id": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\index.html",
+      "Id": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
     },
     {
-      "Id": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\js\\207.f047d334.chunk.js",
+      "Id": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\js\\207.f047d334.chunk.js",
       "PackagePath": "staticwebassets\\js\\207.f047d334.chunk.js"
     },
     {
-      "Id": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\js\\207.f047d334.chunk.js.map",
+      "Id": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\js\\207.f047d334.chunk.js.map",
       "PackagePath": "staticwebassets\\js\\207.f047d334.chunk.js.map"
     },
     {
-      "Id": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\js\\230.1d6bd4bf.chunk.js",
+      "Id": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\js\\230.1d6bd4bf.chunk.js",
       "PackagePath": "staticwebassets\\js\\230.1d6bd4bf.chunk.js"
     },
     {
-      "Id": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\js\\230.1d6bd4bf.chunk.js.map",
+      "Id": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\js\\230.1d6bd4bf.chunk.js.map",
       "PackagePath": "staticwebassets\\js\\230.1d6bd4bf.chunk.js.map"
     },
     {
-      "Id": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\js\\300.76c0a4c4.chunk.js",
+      "Id": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\js\\300.76c0a4c4.chunk.js",
       "PackagePath": "staticwebassets\\js\\300.76c0a4c4.chunk.js"
     },
     {
-      "Id": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\js\\300.76c0a4c4.chunk.js.map",
+      "Id": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\js\\300.76c0a4c4.chunk.js.map",
       "PackagePath": "staticwebassets\\js\\300.76c0a4c4.chunk.js.map"
     },
     {
-      "Id": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\js\\669.67f40520.chunk.js",
+      "Id": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\js\\669.67f40520.chunk.js",
       "PackagePath": "staticwebassets\\js\\669.67f40520.chunk.js"
     },
     {
-      "Id": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\js\\669.67f40520.chunk.js.map",
+      "Id": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\js\\669.67f40520.chunk.js.map",
       "PackagePath": "staticwebassets\\js\\669.67f40520.chunk.js.map"
     },
     {
-      "Id": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\js\\main.9ffb3fbe.js",
+      "Id": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\js\\main.9ffb3fbe.js",
       "PackagePath": "staticwebassets\\js\\main.9ffb3fbe.js"
     },
     {
-      "Id": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\js\\main.9ffb3fbe.js.LICENSE.txt",
+      "Id": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\js\\main.9ffb3fbe.js.LICENSE.txt",
       "PackagePath": "staticwebassets\\js\\main.9ffb3fbe.js.LICENSE.txt"
     },
     {
-      "Id": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\js\\main.9ffb3fbe.js.map",
+      "Id": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\js\\main.9ffb3fbe.js.map",
       "PackagePath": "staticwebassets\\js\\main.9ffb3fbe.js.map"
     },
     {
-      "Id": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\logo192.png",
+      "Id": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\logo192.png",
       "PackagePath": "staticwebassets\\logo192.png"
     },
     {
-      "Id": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\logo512.png",
+      "Id": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\logo512.png",
       "PackagePath": "staticwebassets\\logo512.png"
     },
     {
-      "Id": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\manifest.json",
+      "Id": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\manifest.json",
       "PackagePath": "staticwebassets\\manifest.json"
     },
     {
-      "Id": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\robots.txt",
+      "Id": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\robots.txt",
       "PackagePath": "staticwebassets\\robots.txt"
     },
     {

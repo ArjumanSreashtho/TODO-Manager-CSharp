@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Todo_Manager.Domain.Tasks.Queries;
 using Todo_Manager.DTO.Task;
 using Todo_Manager.Services.Interfaces;
 
@@ -11,9 +13,11 @@ namespace Todo_Manager.Controllers.api
     public class TaskController : ControllerBase
     {
         private readonly ITaskService _taskService;
-        public TaskController(ITaskService taskService) 
+        private readonly IMediator _mediator;
+        public TaskController(IMediator mediator, ITaskService taskService) 
         {
             _taskService = taskService;
+            _mediator = mediator;
         }
 
         [HttpPost]
@@ -30,9 +34,18 @@ namespace Todo_Manager.Controllers.api
         [HttpGet]
         public async Task<IActionResult> GetTasks([FromQuery] bool? type = null, string search = "", int page = 1, int total = 10)
         {
-            var totalTasks = await _taskService.CountTasks(type, search);
-            var tasksList = await _taskService.GetTasks(type, search, page, total);
-            
+            var totalTasks = await _mediator.Send(new GetCountAllTasksQuery()
+            {
+                Type = type,
+                Search = search
+            });
+            var tasksList = await _mediator.Send(new GetAllTasksQuery()
+            {
+                Type = type,
+                Search = search,
+                Page = page,
+                Total = total
+            });
             return Ok(new
             {
                 message = "Tasks have been retrieved",
@@ -49,6 +62,10 @@ namespace Todo_Manager.Controllers.api
         public async Task<IActionResult> GetTask([FromRoute] Guid id)
         {
             var task = await _taskService.GetTask(id);
+            // var task = await _mediator.Send(new GetTaskQuery()
+            // {
+            //     Id = id
+            // });
             return Ok(new
             {
                 message = "Task has been retrieved",
