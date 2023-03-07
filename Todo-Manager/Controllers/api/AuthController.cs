@@ -20,7 +20,7 @@ namespace Todo_Manager.Controllers.api;
 public class AuthController : ControllerBase
 {
     private readonly IMediator _mediator;
-    public AuthController(IAuthService authService, IMediator mediator)
+    public AuthController(IMediator mediator)
     {
         _mediator = mediator;
     }

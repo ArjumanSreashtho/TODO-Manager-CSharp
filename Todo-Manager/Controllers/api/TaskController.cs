@@ -13,11 +13,9 @@ namespace Todo_Manager.Controllers.api
     [Authorize]
     public class TaskController : ControllerBase
     {
-        private readonly ITaskService _taskService;
         private readonly IMediator _mediator;
-        public TaskController(IMediator mediator, ITaskService taskService) 
+        public TaskController(IMediator mediator) 
         {
-            _taskService = taskService;
             _mediator = mediator;
         }
 
