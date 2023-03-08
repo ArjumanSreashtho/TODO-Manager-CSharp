@@ -27,6 +27,11 @@ public class GetTaskHandler : IRequestHandler<GetTaskQuery, TaskDTO>
             .FirstOrDefaultAsync();
         if (task == null)
             throw new CustomException("Not found", 404);
+        System.Diagnostics.Debug.WriteLine("Id: " + task.Id);
+        System.Diagnostics.Debug.WriteLine("Title: " + task.Title);
+        System.Diagnostics.Debug.WriteLine("Description: " + task.Description);
+        System.Diagnostics.Debug.WriteLine("CreatedAt: " + task.CreatedAt);
+        System.Diagnostics.Debug.WriteLine("UpdatedAt: " + task.UpdatedAt);
         var response = _mapper.Map<TaskDTO>(task);
         return response;
     }

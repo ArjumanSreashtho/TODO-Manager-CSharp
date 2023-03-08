@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "JPjsShwbjZHFa9sW1XMGQ+rxs6B0LQ0uCXQ0vtwZd+A=",
+  "Hash": "sUB+NoDHK6XWC1BEHyD0l0Zg2tmtz+3QTj8iBGaQHZo=",
   "Source": "Todo-Manager",
   "BasePath": "_content/Todo-Manager",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "Todo-Manager\\wwwroot",
       "Source": "Todo-Manager",
-      "ContentRoot": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\",
       "BasePath": "_content/Todo-Manager",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\obj\\Debug\\net7.0\\scopedcss\\bundle\\Todo-Manager.styles.css",
+      "Identity": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\obj\\Debug\\net7.0\\scopedcss\\bundle\\Todo-Manager.styles.css",
       "SourceId": "Todo-Manager",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\obj\\Debug\\net7.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\obj\\Debug\\net7.0\\scopedcss\\bundle\\",
       "BasePath": "_content/Todo-Manager",
       "RelativePath": "Todo-Manager.styles.css",
       "AssetKind": "All",
@@ -31,13 +31,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\obj\\Debug\\net7.0\\scopedcss\\bundle\\Todo-Manager.styles.css"
+      "OriginalItemSpec": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\obj\\Debug\\net7.0\\scopedcss\\bundle\\Todo-Manager.styles.css"
     },
     {
-      "Identity": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\Todo-Manager.bundle.scp.css",
+      "Identity": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\Todo-Manager.bundle.scp.css",
       "SourceId": "Todo-Manager",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/Todo-Manager",
       "RelativePath": "Todo-Manager.bundle.scp.css",
       "AssetKind": "All",
@@ -48,13 +48,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\Todo-Manager.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\Todo-Manager.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\asset-manifest.json",
+      "Identity": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\asset-manifest.json",
       "SourceId": "Todo-Manager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\",
       "BasePath": "_content/Todo-Manager",
       "RelativePath": "asset-manifest.json",
       "AssetKind": "All",
@@ -68,10 +68,10 @@
       "OriginalItemSpec": "wwwroot\\asset-manifest.json"
     },
     {
-      "Identity": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\css\\main.ae9691f6.css",
+      "Identity": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\css\\main.ae9691f6.css",
       "SourceId": "Todo-Manager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\",
       "BasePath": "_content/Todo-Manager",
       "RelativePath": "css/main.ae9691f6.css",
       "AssetKind": "All",
@@ -85,10 +85,10 @@
       "OriginalItemSpec": "wwwroot\\css\\main.ae9691f6.css"
     },
     {
-      "Identity": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\css\\main.ae9691f6.css.map",
+      "Identity": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\css\\main.ae9691f6.css.map",
       "SourceId": "Todo-Manager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\",
       "BasePath": "_content/Todo-Manager",
       "RelativePath": "css/main.ae9691f6.css.map",
       "AssetKind": "All",
@@ -102,10 +102,10 @@
       "OriginalItemSpec": "wwwroot\\css\\main.ae9691f6.css.map"
     },
     {
-      "Identity": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\favicon.ico",
+      "Identity": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\favicon.ico",
       "SourceId": "Todo-Manager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\",
       "BasePath": "_content/Todo-Manager",
       "RelativePath": "favicon.ico",
       "AssetKind": "All",
@@ -119,10 +119,10 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\index.html",
+      "Identity": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\index.html",
       "SourceId": "Todo-Manager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\",
       "BasePath": "_content/Todo-Manager",
       "RelativePath": "index.html",
       "AssetKind": "All",
@@ -136,10 +136,10 @@
       "OriginalItemSpec": "wwwroot\\index.html"
     },
     {
-      "Identity": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\js\\207.f047d334.chunk.js",
+      "Identity": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\js\\207.f047d334.chunk.js",
       "SourceId": "Todo-Manager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\",
       "BasePath": "_content/Todo-Manager",
       "RelativePath": "js/207.f047d334.chunk.js",
       "AssetKind": "All",
@@ -153,10 +153,10 @@
       "OriginalItemSpec": "wwwroot\\js\\207.f047d334.chunk.js"
     },
     {
-      "Identity": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\js\\207.f047d334.chunk.js.map",
+      "Identity": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\js\\207.f047d334.chunk.js.map",
       "SourceId": "Todo-Manager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\",
       "BasePath": "_content/Todo-Manager",
       "RelativePath": "js/207.f047d334.chunk.js.map",
       "AssetKind": "All",
@@ -170,10 +170,10 @@
       "OriginalItemSpec": "wwwroot\\js\\207.f047d334.chunk.js.map"
     },
     {
-      "Identity": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\js\\230.1d6bd4bf.chunk.js",
+      "Identity": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\js\\230.1d6bd4bf.chunk.js",
       "SourceId": "Todo-Manager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\",
       "BasePath": "_content/Todo-Manager",
       "RelativePath": "js/230.1d6bd4bf.chunk.js",
       "AssetKind": "All",
@@ -187,10 +187,10 @@
       "OriginalItemSpec": "wwwroot\\js\\230.1d6bd4bf.chunk.js"
     },
     {
-      "Identity": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\js\\230.1d6bd4bf.chunk.js.map",
+      "Identity": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\js\\230.1d6bd4bf.chunk.js.map",
       "SourceId": "Todo-Manager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\",
       "BasePath": "_content/Todo-Manager",
       "RelativePath": "js/230.1d6bd4bf.chunk.js.map",
       "AssetKind": "All",
@@ -204,10 +204,10 @@
       "OriginalItemSpec": "wwwroot\\js\\230.1d6bd4bf.chunk.js.map"
     },
     {
-      "Identity": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\js\\300.76c0a4c4.chunk.js",
+      "Identity": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\js\\300.76c0a4c4.chunk.js",
       "SourceId": "Todo-Manager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\",
       "BasePath": "_content/Todo-Manager",
       "RelativePath": "js/300.76c0a4c4.chunk.js",
       "AssetKind": "All",
@@ -221,10 +221,10 @@
       "OriginalItemSpec": "wwwroot\\js\\300.76c0a4c4.chunk.js"
     },
     {
-      "Identity": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\js\\300.76c0a4c4.chunk.js.map",
+      "Identity": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\js\\300.76c0a4c4.chunk.js.map",
       "SourceId": "Todo-Manager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\",
       "BasePath": "_content/Todo-Manager",
       "RelativePath": "js/300.76c0a4c4.chunk.js.map",
       "AssetKind": "All",
@@ -238,10 +238,10 @@
       "OriginalItemSpec": "wwwroot\\js\\300.76c0a4c4.chunk.js.map"
     },
     {
-      "Identity": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\js\\669.67f40520.chunk.js",
+      "Identity": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\js\\669.67f40520.chunk.js",
       "SourceId": "Todo-Manager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\",
       "BasePath": "_content/Todo-Manager",
       "RelativePath": "js/669.67f40520.chunk.js",
       "AssetKind": "All",
@@ -255,10 +255,10 @@
       "OriginalItemSpec": "wwwroot\\js\\669.67f40520.chunk.js"
     },
     {
-      "Identity": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\js\\669.67f40520.chunk.js.map",
+      "Identity": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\js\\669.67f40520.chunk.js.map",
       "SourceId": "Todo-Manager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\",
       "BasePath": "_content/Todo-Manager",
       "RelativePath": "js/669.67f40520.chunk.js.map",
       "AssetKind": "All",
@@ -272,10 +272,10 @@
       "OriginalItemSpec": "wwwroot\\js\\669.67f40520.chunk.js.map"
     },
     {
-      "Identity": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\js\\main.9ffb3fbe.js",
+      "Identity": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\js\\main.9ffb3fbe.js",
       "SourceId": "Todo-Manager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\",
       "BasePath": "_content/Todo-Manager",
       "RelativePath": "js/main.9ffb3fbe.js",
       "AssetKind": "All",
@@ -289,10 +289,10 @@
       "OriginalItemSpec": "wwwroot\\js\\main.9ffb3fbe.js"
     },
     {
-      "Identity": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\js\\main.9ffb3fbe.js.LICENSE.txt",
+      "Identity": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\js\\main.9ffb3fbe.js.LICENSE.txt",
       "SourceId": "Todo-Manager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\",
       "BasePath": "_content/Todo-Manager",
       "RelativePath": "js/main.9ffb3fbe.js.LICENSE.txt",
       "AssetKind": "All",
@@ -306,10 +306,10 @@
       "OriginalItemSpec": "wwwroot\\js\\main.9ffb3fbe.js.LICENSE.txt"
     },
     {
-      "Identity": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\js\\main.9ffb3fbe.js.map",
+      "Identity": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\js\\main.9ffb3fbe.js.map",
       "SourceId": "Todo-Manager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\",
       "BasePath": "_content/Todo-Manager",
       "RelativePath": "js/main.9ffb3fbe.js.map",
       "AssetKind": "All",
@@ -323,10 +323,10 @@
       "OriginalItemSpec": "wwwroot\\js\\main.9ffb3fbe.js.map"
     },
     {
-      "Identity": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\logo192.png",
+      "Identity": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\logo192.png",
       "SourceId": "Todo-Manager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\",
       "BasePath": "_content/Todo-Manager",
       "RelativePath": "logo192.png",
       "AssetKind": "All",
@@ -340,10 +340,10 @@
       "OriginalItemSpec": "wwwroot\\logo192.png"
     },
     {
-      "Identity": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\logo512.png",
+      "Identity": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\logo512.png",
       "SourceId": "Todo-Manager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\",
       "BasePath": "_content/Todo-Manager",
       "RelativePath": "logo512.png",
       "AssetKind": "All",
@@ -357,10 +357,10 @@
       "OriginalItemSpec": "wwwroot\\logo512.png"
     },
     {
-      "Identity": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\manifest.json",
+      "Identity": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\manifest.json",
       "SourceId": "Todo-Manager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\",
       "BasePath": "_content/Todo-Manager",
       "RelativePath": "manifest.json",
       "AssetKind": "All",
@@ -374,10 +374,10 @@
       "OriginalItemSpec": "wwwroot\\manifest.json"
     },
     {
-      "Identity": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\robots.txt",
+      "Identity": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\robots.txt",
       "SourceId": "Todo-Manager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Arjuman Sreashtho\\RiderProjects\\Todo-Manager\\Todo-Manager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Newcomer\\WellDev\\Projects\\TODO-Manager-CSharp\\Todo-Manager\\wwwroot\\",
       "BasePath": "_content/Todo-Manager",
       "RelativePath": "robots.txt",
       "AssetKind": "All",
